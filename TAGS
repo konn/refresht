@@ -1,0 +1,49 @@
+
+./app/Main.hs,170
+module Main Main1,2
+data RefreshNow RefreshNow10,11
+data RefreshNow = RefreshNowRefreshNow10,11
+conf conf13,14
+conf conf14,15
+main main19,20
+main main20,21
+
+./Setup.hs,15
+main main1,2
+
+./src/Control/Monad/Refresh.hs,1145
+module Control.Monad.RefreshControl.Monad.Refresh4,5
+data RefreshSetting RefreshSetting32,33
+  RefreshSetting RefreshSetting33,34
+  RefreshSetting { _refresher _refresher33,34
+                 , _refreshDelay _refreshDelay34,35
+                 , _isRefreshingError _isRefreshingError35,36
+                 , _shouldRefresh _shouldRefresh36,37
+instance instance40,41
+defaultRefreshSetting defaultRefreshSetting43,44
+defaultRefreshSetting defaultRefreshSetting44,45
+data Localed Localed48,49
+data Localed a = Localed Localed48,49
+data Localed a = Localed { modifier modifier48,49
+                         , original original49,50
+runLocaled runLocaled52,53
+runLocaled runLocaled53,54
+newtype RefreshT RefreshT56,57
+  RefreshT RefreshT57,58
+  RefreshT { runRefreshT_ runRefreshT_57,58
+atomic atomic66,67
+atomic atomic67,68
+atomicLift atomicLift74,75
+atomicLift atomicLift75,76
+withEnv withEnv78,79
+withEnv withEnv79,80
+runRefreshT runRefreshT81,82
+runRefreshT runRefreshT82,83
+evalRefreshT evalRefreshT86,87
+evalRefreshT evalRefreshT87,88
+refresh refresh110,111
+refresh refresh111,112
+
+./test/Spec.hs,30
+main main0,1
+main main1,2
