@@ -75,6 +75,9 @@ atomic (RefreshT act) = RefreshT $ view isRefreshingError >>= loop
 atomicLift :: (MonadIO m, MonadCatch m) => m a -> RefreshT s m a
 atomicLift = atomic . lift
 
+atomicLiftIO :: (MonadIO m, MonadCatch m) => IO a -> RefreshT s m a
+atomicLiftIO = atomic . liftIO
+
 -- | @'atomicLift'@ composed with @'Control.Monad.Reader.ask'@.
 withEnv :: (MonadIO m, MonadCatch m) => (s -> m a) -> RefreshT s m a
 withEnv act = atomic $ lift . act =<< ask
