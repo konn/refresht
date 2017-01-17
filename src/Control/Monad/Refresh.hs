@@ -34,7 +34,7 @@ module Control.Monad.Refresh
 import Control.Concurrent  (threadDelay)
 import Control.Exception   (SomeException (..))
 import Control.Lens        (makeLenses, view, (^.))
-import Control.Monad.Catch (MonadCatch (..), catchIf)
+import Control.Monad.Catch (MonadCatch (..), MonadThrow (..), catchIf)
 import Control.Monad.RWS   (MonadTrans (..), RWST (..), ask, evalRWST, get,
                             gets)
 import Control.Monad.RWS   (MonadIO (liftIO), MonadReader (..), modify, runRWST)
@@ -160,6 +160,17 @@ instance MonadIO m => MonadReader s (RefreshT s m) where
       f <- gets modifier
       return $! f s'
       else gets runLocaled
+
+-- | Since 0.1.1.0
+instance MonadThrow m => MonadThrow (RefreshT s m) where
+  throwM = RefreshT . throwM
+  {-# INLINE throwM #-}
+
+-- | N.B. When exception is @'catch'@ed, no resource refreshment will be occured.
+--        This allows users a flexible control on refreshment timing.
+instance MonadCatch m => MonadCatch (RefreshT s m) where
+  catch (RefreshT a) h = RefreshT $ catch a (runRefreshT_ . h)
+  {-# INLINE catch #-}
 
 -- | Forces environmental refreshment, regardless of @'shouldRefresh'@ condition.
 --

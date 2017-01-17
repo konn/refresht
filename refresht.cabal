@@ -1,5 +1,5 @@
 name:                refresht
-version:             0.1.0.1
+version:             0.1.1.0
 synopsis:            Environment Monad with automatic resource refreshment
 description:         Please see README.md
 homepage:            https://github.com/konn/refresht#readme
